@@ -105,13 +105,6 @@ react-query: React Query is used for managing asynchronous data fetching and mut
 - **react-router-dom**: This library is responsible for routing within the React application.
 - **react-query**: React Query is essential for managing asynchronous data fetching and mutations.
 
-## Usage
 
-To incorporate the `ProductItems` component into your React application:
-
-1. Ensure that the component is correctly imported into your project.
-
-```javascript
-import ProductItems from "./ProductItems";
 
 
