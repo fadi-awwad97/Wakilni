@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <nav className="navbar">
-      <a href="/" style={{textDecoration:'none', color:'white'}}>Home Page</a>
+      <a href="/" style={{textDecoration:'none', color:'white'}}>Home</a>
       <div
         style={navStyles}
       >

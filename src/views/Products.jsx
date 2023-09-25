@@ -167,9 +167,11 @@ function Home() {
 
   return (
     <div className="body">
-      <button onClick={logout} className="prod-button">
-        <i className="fa fa-outdent" aria-hidden="true"></i>
-      </button>
+      <div className="logout">
+        <button onClick={logout} className="logout-button">
+          <i className="fa fa-outdent" aria-hidden="true"> Logout</i>
+        </button>
+      </div>
       <h1>Product Types</h1>
       <div className="button-container">
         <button className="prod-button" onClick={openPopup}>

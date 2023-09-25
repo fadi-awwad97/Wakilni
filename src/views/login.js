@@ -64,7 +64,7 @@ function Login() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
-                  placeholder="Enter email id / username"
+                  placeholder="Enter email"
                   className="form-control inp_text"
                   id="email"
                 />
