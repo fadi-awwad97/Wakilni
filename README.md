@@ -62,9 +62,9 @@ formik: Formik is used for handling form inputs and validations.
 Yup: Yup is used for defining and validating form schemas.
 react-router-dom: This library is used for routing within the React application.
 react-query: React Query is used for managing asynchronous data fetching and mutations.
+```
 
-
-## ProductItems.js Documentation
+# ProductItems.js Documentation
 
 ## Introduction
 
@@ -113,4 +113,5 @@ To incorporate the `ProductItems` component into your React application:
 
 ```javascript
 import ProductItems from "./ProductItems";
+
 
