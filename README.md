@@ -8,35 +8,56 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# ProductItems.js Documentation
 
-The page will reload when you make changes.\
-ProductItems.js Documentation
-Introduction
-ProductItems.js is a React component file that handles the display and management of items related to a product. It allows users to view, add, edit, delete, and mark items as sold. Additionally, it supports barcode scanning for adding items. This documentation provides an overview of the key functionalities and how to use them.
+## Introduction
 
-Key Functionalities
-1. Displaying Product Items
-The component displays a list of product items associated with a specific product.
-2. Adding New Items
-Users can add new product items by clicking the "Add New Item" button.
-For convenience, users can also add multiple items at once by specifying the total number of items and their serial numbers.
-3. Editing Items
-Users can edit existing product items by clicking the "Edit" button next to an item.
-A popup allows users to modify the serial number of the item.
-4. Deleting Items
-Users can delete items by clicking the "Remove" button next to an item.
-5. Marking Items as Sold
-Users can mark items as sold by toggling the checkbox in the "SOLD" column.
-6. Barcode Scanning
-Users can initiate barcode scanning by clicking the "Start barcode Scan" button.
-The component uses the react-qr-reader library to scan barcodes.
-Scanned barcodes are displayed in the "Serial Number" field.
-7. Searching Items
-Users can search for items by serial number using the search input field.
-External Libraries and Dependencies
-react-qr-reader: This library is used for barcode scanning functionality.
+`ProductItems.js` is a React component file designed for managing and displaying items associated with a product. It offers various functionalities such as item addition, editing, deletion, marking items as sold, and even barcode scanning for streamlined item entry. This documentation provides an overview of its key features and instructions on how to utilize them effectively.
+
+## Key Functionalities
+
+1. **Displaying Product Items**
+   - This component exhibits a list of product items linked to a particular product.
+
+2. **Adding New Items**
+   - Users can conveniently add new product items by clicking the "Add New Item" button.
+   - For efficiency, users have the option to add multiple items simultaneously by specifying the total number of items and their respective serial numbers.
+
+3. **Editing Items**
+   - The component enables users to edit existing product items by selecting the "Edit" button next to the desired item.
+   - A popup dialog box facilitates the modification of an item's serial number.
+
+4. **Deleting Items**
+   - Items can be removed from the list by clicking the "Remove" button associated with each item.
+
+5. **Marking Items as Sold**
+   - Users can indicate that an item has been sold by toggling the checkbox located in the "SOLD" column.
+
+6. **Barcode Scanning**
+   - Users have the option to initiate barcode scanning by clicking the "Start barcode Scan" button.
+   - Barcode scanning functionality is implemented using the `react-qr-reader` library.
+   - Scanned barcodes are promptly displayed in the "Serial Number" field.
+
+7. **Searching Items**
+   - The component provides a search feature that allows users to filter items by serial number using the search input field.
+
+## External Libraries and Dependencies
+
+- **react-qr-reader**: This library is utilized to facilitate barcode scanning functionality.
+- **formik**: Formik is employed for handling form inputs and performing validations.
+- **Yup**: Yup is chosen for the definition and validation of form schemas.
+- **react-router-dom**: This library is responsible for routing within the React application.
+- **react-query**: React Query plays a vital role in managing asynchronous data fetching and mutations.
+
+## Usage
+
+To integrate the `ProductItems` component into your React application:
+
+1. Ensure that the component is properly imported into your project.
+
+```javascript
+import ProductItems from "./ProductItems";
+
 formik: Formik is used for handling form inputs and validations.
 Yup: Yup is used for defining and validating form schemas.
 react-router-dom: This library is used for routing within the React application.
