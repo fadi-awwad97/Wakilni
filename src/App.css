@@ -1,0 +1,288 @@
+.App {
+  text-align: center;
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
+
+/* Style for the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Style for product images */
+.product-image {
+  max-width: 100px;
+  max-height: 100px;
+  /* display: block; */
+  margin: 0 auto;
+}
+
+/* Style for edit and remove buttons */
+.edit, .remove {
+  cursor: pointer;
+  color: #007BFF;
+}
+
+.edit:hover, .remove:hover {
+  text-decoration: underline;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Style for the search input when it's focused */
+input[type="text"]:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+input[type="number" i] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type="number"]:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Styles for the popup container */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Ensure it's above other content */
+  overflow: scroll;
+}
+
+/* Styles for the popup content */
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 25%; /* Adjust the width as needed */
+}
+
+/* Style for the close button (optional) */
+.popup-content button {
+  margin-top: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Style for labels and input fields */
+.popup-content label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.popup-content input[type="text"],
+.popup-content textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Style for the upload image input (customize as needed) */
+.popup-content input[type="file"] {
+  display: none;
+}
+
+.popup-content input[type="file"] + label {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Style for uploaded image preview (customize as needed) */
+.popup-content .image-preview {
+  margin-top: 10px;
+}
+
+.popup-content .image-preview img {
+  max-width: 100%;
+  max-height: 150px;
+  margin-top: 5px;
+  object-fit: contain;
+}
+
+.popup-content input[type="file"] {
+  display: none;
+}
+
+/* Style for the custom upload image button */
+.upload-image-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.upload-image-button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for the selected file text */
+.selected-file {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Style for the image preview (customize as needed) */
+.popup-content .image-preview {
+  margin-top: 10px;
+}
+
+.popup-content .image-preview img {
+  max-width: 100%;
+  max-height: 150px;
+  margin-top: 5px;
+}
+.popup-content button {
+  margin-top: 10px; /* Add more margin-top to increase spacing */
+  margin-right: 10px; /* Optional: Add margin-right for horizontal spacing */
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.add-cancel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Style for the "Cancel" button specifically (optional) */
+.popup-content button.cancel {
+  background-color: #ccc;
+}
+section div {
+  padding-top: 25% !important;
+}
+
+.close-qr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prod-button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+ 
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  gap:10px; /* Add margin to separate from the table */
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    width: fit-content;
+  }
+  .button-container {
+    justify-content: flex-start;
+  }
+}

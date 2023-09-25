@@ -1,0 +1,32 @@
+.circle {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+  }
+  
+  .circle.sm {
+    width: 100px;
+    height: 100px;
+    background-image: url('../icons/beauty.png');
+    background-size: contain;
+  }
+  
+  .circle.md {
+    width: 60px;
+    height: 60px;
+    background: yellow;
+  }
+  
+  .circle.lg {
+    width: 90px;
+    height: 90px;
+    background: blue;
+  }
+  .app {
+    padding: 10px;
+    
+    
+  }
+  

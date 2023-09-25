@@ -1,0 +1,62 @@
+/* SignupForm.css */
+
+.signup-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Hide content that overflows the container */
+    transform: translateX(-100%); /* Initially slide the form outside the screen */
+    animation: slide-in 0.5s forwards; /* Apply the slide-in animation */
+  }
+  
+  /* Define the slide-in animation */
+  @keyframes slide-in {
+    100% {
+      transform: translateX(0); /* Slide the form to its original position */
+    }
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.3s ease; /* Add a smooth transition when form-container-submitting class is added */
+  }
+  
+  .form-container label {
+    margin-bottom: 5px;
+  }
+  
+  .form-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 95%;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  .form-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .form-container-submitting {
+    opacity: 0.5; /* Reduce opacity of the form when submitting */
+    pointer-events: none; /* Disable form interactions while submitting */
+  }
+  .form-field {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
+  }
