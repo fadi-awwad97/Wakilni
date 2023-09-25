@@ -43,6 +43,7 @@ function ProductItems() {
     setEditItem(null);
   };
 
+  //to use the popup dynamically
   const handleEditButtonClick = (item) => {
     setEditItem(item); 
     editItems(item.id);
@@ -50,6 +51,7 @@ function ProductItems() {
   };
 
 
+  // calling the apis from user service file for all mutations
   const { mutate: GetTheItems } = useMutation(userService.getItems, {
     onSuccess: (responseData) => {
       setItems(responseData.data.productItems);
@@ -88,6 +90,7 @@ function ProductItems() {
     },
   });
 
+  //adding product id to the items before calling the functions that calls the APIS 
   const handleSubmit = async (values, { resetForm }) => {
     const valuesWithId = {
       ...values,
@@ -103,6 +106,7 @@ function ProductItems() {
     closePopup();
   };
 
+  //checkbox on click set sold
   const handleSoldCheckboxChange = async (itemId) => {
     try {
       await updateSold(itemId);
@@ -112,10 +116,12 @@ function ProductItems() {
     }
   };
 
+  //fetching items data
   const handleFetchData = () => {
     GetTheItems(productId);
   };
 
+  //for adding multiple items
   const handleTotalItemsChange = (e) => {
     const newTotal = parseInt(e.target.value, 10) || 1;
     setTotalItems(newTotal);
@@ -125,7 +131,7 @@ function ProductItems() {
     deleteItem(id);
   };
 
-
+ //scanner
   const handleScan = (data) => {
     if (data) {
       setSerialNumber(data);

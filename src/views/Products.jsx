@@ -31,46 +31,44 @@ function Home() {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Product Type Name is required"),
     description: Yup.string().required("Product Description is required"),
-    // image: Yup.mixed().required("Product image is required"),
   });
   const navigate = useNavigate();
 
+  //popups
   const openPopup = () => {
     setShowPopup(true);
   };
-
   const closePopup = () => {
     setShowPopup(false);
     setPreviewImage(null);
   };
-
   const openPopupEdit = () => {
     setShowPopupEdit(true);
   };
-
   const closePopupEdit = () => {
     setShowPopupEdit(false);
     setPreviewImage(null);
   };
 
+  //mutations for calling APIs from service file to solve caching issues
   const { mutate: GetTheData } = useMutation(userService.getAllProducts, {
     onSuccess: (responseData) => {
       setProductTypes(responseData.data.productTypes);
     },
     onError: (error) => {
       console.log(error.response.data.message);
-      if (error.response.data.message === 'Unauthenticated.'){
+      if (error.response.data.message === "Unauthenticated.") {
         deleteTokens();
       }
     },
   });
   const { mutate: RemoveProduct } = useMutation(userService.deleteProduct, {
-    onSuccess: (responseData) => {
+    onSuccess: () => {
       GetTheData();
     },
   });
   const { mutate: addtheproduct } = useMutation(userService.addProduct, {
-    onSuccess: (responseData) => {
+    onSuccess: () => {
       handleFetchData();
       closePopup();
     },
@@ -80,7 +78,7 @@ function Home() {
   });
 
   const { mutate: Edittheproduct } = useMutation(userService.updateProduct, {
-    onSuccess: (responseData) => {
+    onSuccess: () => {
       handleFetchData();
       closePopupEdit();
     },
@@ -90,7 +88,7 @@ function Home() {
   });
 
   const { mutate: logout } = useMutation(userService.logout, {
-    onSuccess: (responseData) => {
+    onSuccess: () => {
       deleteTokens();
       navigate("/login");
     },
@@ -99,9 +97,12 @@ function Home() {
     },
   });
 
+  //for the search input
   const filteredProductTypes = productTypes.filter((productType) =>
     productType.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  //for image handling when editing and adding as well for the preview
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -110,16 +111,16 @@ function Home() {
         setPreviewImage(reader.result);
       };
       reader.readAsDataURL(file);
-
-      // Store the selected image file
     }
     setSelectedImage(file);
   };
 
+  //fetching original data
   const handleFetchData = () => {
     GetTheData();
   };
 
+  //editing product and setting the data in the inputs for update
   const editProduct = (productId) => {
     const productToEdit = productTypes.find(
       (productType) => productType.id === productId
@@ -140,6 +141,7 @@ function Home() {
     RemoveProduct(productId);
   };
 
+  ///appending product info for the add API
   const handleSubmit = async (values, { resetForm }) => {
     const { name, description } = values;
     const formData = new FormData();
@@ -150,6 +152,7 @@ function Home() {
     addtheproduct(formData);
   };
 
+  //appending product info for the edit API
   const handleEdit = async (values) => {
     const { name, description, id } = values;
     const formDataEdit = new FormData();
@@ -161,6 +164,7 @@ function Home() {
     Edittheproduct(formDataEdit);
   };
 
+  //onclik row
   const handleProductTypeClick = (productId, productName) => {
     navigate(`/product/${productId}/items`, { state: productName });
   };
@@ -169,7 +173,10 @@ function Home() {
     <div className="body">
       <div className="logout">
         <button onClick={logout} className="logout-button">
-          <i className="fa fa-outdent" aria-hidden="true"> Logout</i>
+          <i className="fa fa-outdent" aria-hidden="true">
+            {" "}
+            Logout
+          </i>
         </button>
       </div>
       <h1>Product Types</h1>
@@ -178,9 +185,8 @@ function Home() {
           Add New Product Type
         </button>
       </div>
-  
+
       <Formik
-       
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
@@ -202,9 +208,17 @@ function Home() {
                   className="error"
                 />
 
-                <label htmlFor="image" style={{ cursor: "pointer" , border:"1px solid lightgray", padding:'10px' }}>
+                <label
+                  htmlFor="image"
+                  style={{
+                    cursor: "pointer",
+                    border: "1px solid lightgray",
+                    padding: "10px",
+                  }}
+                >
                   Add Image <i className="fa fa-camera-retro fa-1x"></i>
                 </label>
+
                 <Field
                   type="file"
                   id="image"
@@ -253,24 +267,12 @@ function Home() {
                 <div className="popup-content">
                   <h2>Add a Product Type</h2>
                   <label htmlFor="name">Product Type Name:</label>
-                  <Field
-                    type="hidden"
-                    id="id"
-                    name="id"
-                  />
-                  <Field
-                    type="text"
-                    id="name"
-                    name="name"
-                  />
+                  <Field type="hidden" id="id" name="id" />
+                  <Field type="text" id="name" name="name" />
                   <ErrorMessage name="name" component="div" className="error" />
 
                   <label htmlFor="description">Product Description:</label>
-                  <Field
-                    as="textarea"
-                    id="description"
-                    name="description"
-                  />
+                  <Field as="textarea" id="description" name="description" />
                   <ErrorMessage
                     name="description"
                     component="div"
@@ -375,9 +377,11 @@ function Home() {
               >
                 {productType.count}
               </td>
-              <td onClick={() =>
+              <td
+                onClick={() =>
                   handleProductTypeClick(productType.id, productType.name)
-                }>
+                }
+              >
                 <img
                   src={`${"http://localhost:8000"}${productType.image_url}`}
                   alt={productType.name}

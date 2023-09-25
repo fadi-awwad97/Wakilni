@@ -35,12 +35,10 @@ function Login() {
 
   return (
     <>
-      {/* Wrapping form inside formik tag and passing our schema to validationSchema prop */}
       <Formik
         validationSchema={schema}
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => {
-          // Alert the input values of the form that we filled
           logintheUser(values);
         }}
       >
@@ -54,10 +52,8 @@ function Login() {
         }) => (
           <div className="login">
             <div className="form">
-              {/* Passing handleSubmit parameter tohtml form onSubmit property */}
               <form noValidate onSubmit={handleSubmit}>
                 <span>{error !=null ? error : "Login" }</span>
-                {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
                 <input
                   type="email"
                   name="email"
@@ -68,12 +64,9 @@ function Login() {
                   className="form-control inp_text"
                   id="email"
                 />
-                {/* If validation is not passed show errors */}
                 <p className="error">
                   {errors.email && touched.email && errors.email }
                 </p>
-               
-                {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
                 <input
                   type="password"
                   name="password"
@@ -83,11 +76,9 @@ function Login() {
                   placeholder="Enter password"
                   className="form-control"
                 />
-                {/* If validation is not passed show errors */}
                 <p className="error">
                   {errors.password && touched.password && errors.password}
                 </p>
-                {/* Click on submit button to submit the form */}
                 <button type="submit">Login</button>
               </form>
               <p>
